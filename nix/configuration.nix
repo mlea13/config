@@ -41,12 +41,18 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      emacs firefox git google-chrome tmux vim wget gitFull
+     dmenu pavucontrol
    ];
 
   nixpkgs.config = {
     allowUnfree = true;
   };
 
+  nix.nixPath = let nixpkgs = builtins.toPath ./nixpkgs; in [
+    ("nixos=" + nixpkgs)
+    ("nixpkgs=" + nixpkgs)
+    ("nixos-config=" + builtins.toPath ./configuration.nix)
+  ];
 
   ## SERVICES
   
@@ -80,7 +86,8 @@
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-
+  services.xserver.windowManager.xmonad.enable = true;
+  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
 
   ## USERS
 
