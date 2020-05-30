@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     arandr
+    autorandr
     dmenu
     emacs
     firefox
