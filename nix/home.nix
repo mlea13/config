@@ -1,0 +1,21 @@
+{ pkgs, ... }:
+
+{
+  home.packages = with pkgs; [
+    arandr
+    dmenu
+    emacs
+    firefox
+    geoclue2
+    gitFull    
+    google-chrome
+    home-manager
+    libreoffice
+    pavucontrol
+    redshift
+    tmux
+    unzip
+    vim
+    wget 
+  ];
+}
