@@ -19,7 +19,11 @@
     tmux
     unzip
     vim
-    wget 
+    wget
+
+    ghc
+    cabal-install
+    binutils
   ]) ++ [
     (import ../obelisk {}).command
   ];
