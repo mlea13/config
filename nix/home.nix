@@ -3,7 +3,7 @@
 {
   imports = [./emacs-init.nix];
   
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     acpi
     arandr
     autorandr
@@ -20,6 +20,8 @@
     unzip
     vim
     wget 
+  ]) ++ [
+    (import ../obelisk {}).command
   ];
 
   programs.emacs.enable = true;
