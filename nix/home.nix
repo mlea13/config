@@ -1,11 +1,13 @@
 { pkgs, ... }:
 
 {
+  imports = [./emacs-init.nix];
+  
   home.packages = with pkgs; [
+    acpi
     arandr
     autorandr
     dmenu
-    emacs
     firefox
     geoclue2
     gitFull    
@@ -19,4 +21,39 @@
     vim
     wget 
   ];
+
+  programs.emacs.enable = true;
+  programs.emacs.init = {
+    enable = true;
+
+    prelude = ''
+      (add-to-list 'default-frame-alist '(font . "Source Code Pro 8"))
+    '';
+    
+    usePackage = {
+
+      haskell-mode = {
+        enable = true;
+      };
+
+      nix-mode = {
+        enable = true;
+      };
+
+      which-key = {
+        enable = true;
+        config = ''
+          (which-key-mode)
+        '';
+      };
+
+      company = {
+        enable = true;
+        config = ''
+          (global-company-mode)
+        '';
+      };
+
+    };
+  };
 }
