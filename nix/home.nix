@@ -29,6 +29,14 @@
     (import ../obelisk {}).command
   ];
 
+  programs.bash.enable = true;
+  programs.bash.sessionVariables = {
+    EDITOR = "emacs -nw";
+  };
+  programs.bash.shellAliases = {
+    sleep = "systemctl suspend";
+  };
+
   programs.emacs.enable = true;
   programs.emacs.init = {
     enable = true;
