@@ -42,10 +42,14 @@
     enable = true;
 
     prelude = ''
-      (add-to-list 'default-frame-alist '(font . "Source Code Pro 8"))
+      (add-to-list 'default-frame-alist '(font . "Source Code Pro 10"))
     '';
     
     usePackage = {
+
+      ample-theme = {
+        enable = true;
+      };
 
       haskell-mode = {
         enable = true;
@@ -72,5 +76,5 @@
     };
   };
 
-  xresources.properties."Xft.dpi" = 192;
+  xresources.properties."Xft.dpi" = 128;
 }
