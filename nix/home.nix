@@ -16,6 +16,7 @@
     libreoffice
     pavucontrol
     redshift
+    signal-desktop
     tmux
     unzip
     vim
