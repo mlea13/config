@@ -21,6 +21,7 @@
     unzip
     vim
     wget
+    zoom-us
 
     ghc
     cabal-install
@@ -53,6 +54,10 @@
 
       haskell-mode = {
         enable = true;
+      };
+
+      magit = {
+        enable = true;        
       };
 
       nix-mode = {
