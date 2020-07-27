@@ -42,9 +42,7 @@
   environment.systemPackages = with pkgs; [
   ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config = import ./nix-config.nix;
 
   nix.nixPath = let nixpkgs = builtins.toPath ./nixpkgs; in [
     ("nixos=" + nixpkgs)

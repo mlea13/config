@@ -2,6 +2,8 @@
 
 {
   imports = [./emacs-init.nix];
+
+  nixpkgs.config = import ./nix-config.nix;
   
   home.packages = (with pkgs; [
     acpi
