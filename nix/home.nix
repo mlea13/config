@@ -4,8 +4,14 @@
   imports = [./emacs-init.nix];
 
   nixpkgs.config = import ./nix-config.nix;
+  nixpkgs.overlays = [
+    (self: _: {
+      gplates = self.callPackage (import ./gplates.nix) {};
+    })
+  ];
   
   home.packages = (with pkgs; [
+    anki
     acpi
     arandr
     autorandr
@@ -25,9 +31,18 @@
     wget
     zoom-us
 
+    gimp    
+#    gprojector
+    gplates
+    inkscape
+
+    jre
+    
     ghc
     cabal-install
     binutils
+
+    jre
   ]) ++ [
     (import ../obelisk {}).command
   ];
@@ -38,6 +53,7 @@
   };
   programs.bash.shellAliases = {
     sleep = "systemctl suspend";
+    gproject = "_JAVA_AWT_WM_NONREPARENTING=1 ~/G.ProjectorJ/gprojector.sh";
   };
 
   programs.emacs.enable = true;
@@ -83,5 +99,10 @@
     };
   };
 
+  services.redshift = {
+    enable = true;
+    provider = "geoclue2";
+  };
+  
   xresources.properties."Xft.dpi" = 128;
 }

@@ -57,11 +57,6 @@
   
   # List services that you want to enable:
 
-  services.redshift = {
-    enable = true;
-    provider = "geoclue2";
-  };
-
   services.locate.enable = true;
 
   # Enable CUPS to print documents.
@@ -97,7 +92,11 @@
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
+  services.xserver.libinput.tapping = true;
+  services.xserver.libinput.disableWhileTyping = true;
+  services.xserver.wacom.enable = true;  
 
+  
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
