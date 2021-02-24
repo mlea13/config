@@ -30,6 +30,8 @@
      consoleFont = "Lat2-Terminus16";
      consoleKeyMap = "us";
      defaultLocale = "en_US.UTF-8";
+     inputMethod.enabled = "ibus";
+     inputMethod.ibus.engines = with pkgs.ibus-engines; [ anthy ];
    };
 
   time.timeZone = "America/New_York";
@@ -51,10 +53,10 @@
   ];
 
   nix.binaryCaches = [ "https://nixcache.reflex-frp.org" ];
-  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];  
+  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
   ## SERVICES
-  
+
   # List services that you want to enable:
 
   services.locate.enable = true;
@@ -94,14 +96,13 @@
   services.xserver.libinput.enable = true;
   services.xserver.libinput.tapping = true;
   services.xserver.libinput.disableWhileTyping = true;
-  services.xserver.wacom.enable = true;  
+  services.xserver.wacom.enable = true;
 
-  
+
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
+  services.xserver.desktopManager.xterm.enable = true;
 
   ## USERS
 
@@ -114,7 +115,7 @@
      home = "/home/maddy";
      extraGroups = [
        "maddy" "wheel" "networkmanager"
-     ];       
+     ];
    };
 
 

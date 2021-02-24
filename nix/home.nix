@@ -1,43 +1,44 @@
 { pkgs, ... }:
 
 {
-  imports = [./emacs-init.nix];
+  imports = [
+    ./emacs-init.nix
+    ./anki.nix
+    ./mpv.nix
+  ];
 
   nixpkgs.config = import ./nix-config.nix;
-  nixpkgs.overlays = [
-    (self: _: {
-      gplates = self.callPackage (import ./gplates.nix) {};
-    })
-  ];
-  
+
   home.packages = (with pkgs; [
     anki
     acpi
     arandr
     autorandr
     dmenu
+    element-desktop
     firefox
     geoclue2
-    gitFull    
+    gitFull
     google-chrome
-    home-manager
     libreoffice
     pavucontrol
     redshift
     signal-desktop
     tmux
+    transmission-gtk
+    unar
     unzip
     vim
     wget
+    xclip
     zoom-us
 
-    gimp    
-#    gprojector
+    (gimp-with-plugins.override { plugins = with gimpPlugins; [ gmic ]; })
     gplates
     inkscape
 
     jre
-    
+
     ghc
     cabal-install
     binutils
@@ -45,6 +46,7 @@
     jre
   ]) ++ [
     (import ../obelisk {}).command
+    (import ./home-manager { inherit pkgs; }).home-manager
   ];
 
   programs.bash.enable = true;
@@ -63,11 +65,13 @@
     prelude = ''
       (add-to-list 'default-frame-alist '(font . "Source Code Pro 10"))
     '';
-    
+    postlude = builtins.readFile ./postlude.el;
+
     usePackage = {
 
       ample-theme = {
         enable = true;
+        config = "(ample-theme)";
       };
 
       haskell-mode = {
@@ -75,7 +79,7 @@
       };
 
       magit = {
-        enable = true;        
+        enable = true;
       };
 
       nix-mode = {
@@ -103,6 +107,20 @@
     enable = true;
     provider = "geoclue2";
   };
-  
+
   xresources.properties."Xft.dpi" = 128;
+
+  xsession.enable = true;
+  xsession.initExtra = ''
+    ibus-daemon &
+  '';
+  xsession.windowManager.xmonad.enable = true;
+  xsession.windowManager.xmonad.enableContribAndExtras = true;
+  xsession.windowManager.xmonad.config = ../dotfiles/xmonad.hs;
+
+  home.sessionVariables = {
+    GTK_IM_MODULE = "ibus";
+    QT_IM_MODULE = "ibus";
+    XMODIFIERS = "@im=ibus";
+  };
 }
