@@ -16,6 +16,7 @@
     autorandr
     dmenu
     element-desktop
+    (hunspellWithDicts [ hunspellDicts.en-us ])
     firefox
     geoclue2
     gitFull
@@ -62,9 +63,7 @@
   programs.emacs.init = {
     enable = true;
 
-    prelude = ''
-      (add-to-list 'default-frame-alist '(font . "Source Code Pro 10"))
-    '';
+    prelude = builtins.readFile ./prelude.el;
     postlude = builtins.readFile ./postlude.el;
 
     usePackage = {
@@ -83,6 +82,14 @@
       };
 
       nix-mode = {
+        enable = true;
+      };
+
+      org = {
+        enable = true;
+      };
+
+      wc-mode  = {
         enable = true;
       };
 

@@ -1,4 +1,5 @@
 ;; Font tools
+;;
 (defun my/zoom-in ()
   "Increase font size by 10 points"
   (interactive)
@@ -20,6 +21,7 @@
 (global-set-key (kbd "C-<") 'my/zoom-out)
 
 ;; Clean white spaces
+;;
 (defun clean-buffer ()
   "Remove white space at the end of lines and extra new lines at the end."
   (interactive "*")
@@ -36,3 +38,17 @@
 
 (global-set-key "\C-xw"         'clean-buffer)
 (global-set-key "\M-k"          'copy-line)
+
+;; Spell checking
+;;
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
+(global-set-key "\C-xp"    'ispell-buffer)
+
+;; org mode settings
+;;
+(setq org-startup-truncated nil)
+(with-eval-after-load 'org
+  (setq org-startup-indented t) ; Enable `org-indent-mode' by default
+  (add-hook 'org-mode-hook #'visual-line-mode))
