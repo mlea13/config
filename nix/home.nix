@@ -20,6 +20,7 @@
     firefox
     geoclue2
     gitFull
+    gnome3.gnome-screenshot
     google-chrome
     libreoffice
     pavucontrol
@@ -43,6 +44,8 @@
     ghc
     cabal-install
     binutils
+    stylish-haskell
+    haskellPackages.cabal-fmt
 
     jre
   ]) ++ [

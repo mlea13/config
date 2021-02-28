@@ -4,6 +4,7 @@
   inhibit-startup-screen t
   inhibit-startup-message t
   initial-scratch-message nil
+  custom-file "~/.emacs.d/custom.el"
 )
 (tool-bar-mode -1)
 (scroll-bar-mode -1)

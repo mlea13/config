@@ -45,10 +45,13 @@
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 (global-set-key "\C-xp"    'ispell-buffer)
+(global-set-key "\C-x["    'flyspell-check-previous-highlighted-word)
+(global-set-key "\C-x]"    'flyspell-check-next-highlighted-word)
 
 ;; org mode settings
 ;;
 (setq org-startup-truncated nil)
 (with-eval-after-load 'org
   (setq org-startup-indented t) ; Enable `org-indent-mode' by default
-  (add-hook 'org-mode-hook #'visual-line-mode))
+  (add-hook 'org-mode-hook #'visual-line-mode)
+  (add-hook 'org-mode-hook #'variable-pitch-mode)) ; TODO: set this for the story dir
