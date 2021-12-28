@@ -92,6 +92,10 @@
         enable = true;
       };
 
+      uuidgen = {
+        enable = true;
+      };
+
       org = {
         enable = true;
       };
