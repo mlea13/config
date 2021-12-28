@@ -101,10 +101,9 @@
   services.xserver.wacom.enable = true;
 
 
-  # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  # Enable XMonad.
   services.xserver.desktopManager.xterm.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
 
   ## USERS
 

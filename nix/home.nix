@@ -22,6 +22,7 @@
     gitFull
     gnome3.gnome-screenshot
     google-chrome
+    konsole
     libreoffice
     pavucontrol
     redshift
