@@ -54,6 +54,11 @@
 
 ;; org mode settings
 ;;
+(defun set-org-keys ()
+  (local-set-key (kbd "\C-z <up>") #'outline-up-heading)
+  (local-set-key (kbd "\C-z <right>") #'org-forward-heading-same-level)
+  (local-set-key (kbd "\C-z <left>") #'org-backward-heading-same-level))
+
 (setq org-startup-truncated nil)
 (with-eval-after-load 'org
   (setq org-startup-indented t) ; Enable `org-indent-mode' by default
