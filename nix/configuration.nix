@@ -56,6 +56,8 @@
   nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
   ## SERVICES
+  services.physlock.enable = true;
+  services.physlock.allowAnyUser = true;
 
   # List services that you want to enable:
 
