@@ -46,7 +46,7 @@
 
 (global-set-key "\C-xp"    'ispell-buffer)
 (global-set-key "\C-x["    'flyspell-check-previous-highlighted-word)
-(global-set-key "\C-x]"    'flyspell-check-next-highlighted-word)
+(global-set-key "\C-x]"    'ispell-region)
 
 ;; use count-words instead of count-words-region as it works on buffer
 ;; if no region is selected
