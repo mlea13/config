@@ -63,4 +63,5 @@
 (with-eval-after-load 'org
   (setq org-startup-indented t) ; Enable `org-indent-mode' by default
   (add-hook 'org-mode-hook #'visual-line-mode)
-  (add-hook 'org-mode-hook #'variable-pitch-mode)) ; TODO: set this for the story dir
+  (add-hook 'org-mode-hook #'variable-pitch-mode)  ; TODO: set this for the story dir
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch))
