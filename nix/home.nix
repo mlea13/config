@@ -19,7 +19,6 @@
     (hunspellWithDicts [ hunspellDicts.en-us-large ])
     firefox
     geoclue2
-    gitFull
     gnome3.gnome-screenshot
     google-chrome
     konsole
@@ -60,6 +59,12 @@
     sleep = "systemctl suspend";
     gproject = "_JAVA_AWT_WM_NONREPARENTING=1 ~/G.ProjectorJ/gprojector.sh";
   };
+
+  programs.git.enable = true;
+  programs.git.ignores = [ "*~" ];
+  programs.git.userName = "Maddy Lea";
+  programs.git.userEmail = "maddy.lea@gmail.com";
+  programs.git.delta.enable = true;
 
   programs.emacs.enable = true;
   programs.emacs.init = {
