@@ -48,6 +48,10 @@
 (global-set-key "\C-x["    'flyspell-check-previous-highlighted-word)
 (global-set-key "\C-x]"    'flyspell-check-next-highlighted-word)
 
+;; use count-words instead of count-words-region as it works on buffer
+;; if no region is selected
+(global-set-key (kbd "M-=") 'count-words)
+
 ;; org mode settings
 ;;
 (setq org-startup-truncated nil)
