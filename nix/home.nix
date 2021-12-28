@@ -16,7 +16,7 @@
     autorandr
     dmenu
     element-desktop
-    (hunspellWithDicts [ hunspellDicts.en-us ])
+    (hunspellWithDicts [ hunspellDicts.en-us-large ])
     firefox
     geoclue2
     gitFull
