@@ -40,8 +40,6 @@
     gplates
     inkscape
 
-    jre
-
     ghc
     cabal-install
     binutils
