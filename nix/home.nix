@@ -23,21 +23,26 @@
     google-chrome
     konsole
     libreoffice
+    gnome3.nautilus
     pavucontrol
     redshift
     signal-desktop
     tmux
+    torbrowser
     transmission-gtk
     unar
     unzip
     vim
     wget
     xclip
+    youtube-dl
     zoom-us
 
     (gimp-with-plugins.override { plugins = with gimpPlugins; [ gmic ]; })
     gplates
     inkscape
+
+    ocaml
 
     ghc
     cabal-install
@@ -89,6 +94,10 @@
       };
 
       nix-mode = {
+        enable = true;
+      };
+
+      tuareg = {
         enable = true;
       };
 
