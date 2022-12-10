@@ -9,11 +9,16 @@
 
   nixpkgs.config = import ./nix-config.nix;
 
+  home.stateVersion = "22.05";
+  home.homeDirectory = "/home/maddy";
+  home.username = "maddy";
+
   home.packages = (with pkgs; [
     anki
     acpi
     arandr
     autorandr
+    calibre
     dmenu
     element-desktop
     (hunspellWithDicts [ hunspellDicts.en-us-large ])
@@ -28,7 +33,7 @@
     redshift
     signal-desktop
     tmux
-    torbrowser
+    tor-browser-bundle-bin
     transmission-gtk
     unar
     unzip
