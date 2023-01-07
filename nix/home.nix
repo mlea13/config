@@ -22,6 +22,7 @@
     dmenu
     element-desktop
     (hunspellWithDicts [ hunspellDicts.en-us-large ])
+    gcc
     firefox
     geoclue2
     gnome3.gnome-screenshot
@@ -30,6 +31,7 @@
     libreoffice
     gnome3.nautilus
     pavucontrol
+    pdftk
     redshift
     signal-desktop
     tmux
@@ -47,8 +49,12 @@
     gplates
     inkscape
 
+    dune_3
     ocaml
-
+    ocamlformat
+    ocamlPackages.findlib
+    ocamlPackages.core
+    
     ghc
     cabal-install
     binutils
