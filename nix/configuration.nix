@@ -39,9 +39,20 @@
 
   ## PACKAGES & ENV
 
+  # Steam not supported as a user package...
+  programs.steam = {
+     enable = true;
+     remotePlay.openFirewall = true;
+     dedicatedServer.openFirewall = true;
+  };  
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # Steam not supported as a user package...
+    steam
+    steam-tui
+    steamcmd    
   ];
 
   nixpkgs.config = import ./nix-config.nix;
@@ -72,6 +83,9 @@
 
   hardware.bluetooth.enable = true;
 
+  # This is for steam
+  hardware.opengl.driSupport32Bit = true;
+  
   ## X11 SERVER
 
   # Enable the X11 windowing system.

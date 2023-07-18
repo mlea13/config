@@ -42,6 +42,8 @@
     vim
     wget
     xclip
+    vlc
+    yt-dlp
     youtube-dl
     zoom-us
 
@@ -140,7 +142,7 @@
 
     };
   };
-
+  
   services.redshift = {
     enable = true;
     provider = "geoclue2";
