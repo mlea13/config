@@ -44,16 +44,20 @@
      enable = true;
      remotePlay.openFirewall = true;
      dedicatedServer.openFirewall = true;
-  };  
+  };
+
+
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;  
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # Steam not supported as a user package...
-    steam
-    steam-tui
-    steamcmd    
-  ];
+#  environment.systemPackages = with pkgs; [
+#    # Steam not supported as a user package...
+#    steam
+#    steam-tui
+#    steamcmd    
+#  ];
 
   nixpkgs.config = import ./nix-config.nix;
 
@@ -77,10 +81,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
+  # Enable sound.  
   hardware.bluetooth.enable = true;
 
   # This is for steam

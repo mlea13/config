@@ -14,22 +14,23 @@
   home.username = "maddy";
 
   home.packages = (with pkgs; [
-    anki
+    (hunspellWithDicts [ hunspellDicts.en-us-large ])
     acpi
+    anki
     arandr
     autorandr
     calibre
     dmenu
     element-desktop
-    (hunspellWithDicts [ hunspellDicts.en-us-large ])
-    gcc
     firefox
+    gcc
     geoclue2
-    gnome3.gnome-screenshot
+    gnome.gnome-screenshot
+    gnome.nautilus
     google-chrome
+    htop
     konsole
     libreoffice
-    gnome3.nautilus
     pavucontrol
     pdftk
     redshift
@@ -40,11 +41,10 @@
     unar
     unzip
     vim
+    vlc
     wget
     xclip
-    vlc
     yt-dlp
-    youtube-dl
     zoom-us
 
     (gimp-with-plugins.override { plugins = with gimpPlugins; [ gmic ]; })
