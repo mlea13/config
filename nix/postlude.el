@@ -48,6 +48,10 @@
 (global-set-key "\C-x["    'flyspell-check-previous-highlighted-word)
 (global-set-key "\C-x]"    'ispell-region)
 
+;; Code
+(global-set-key "\C-x,"    'flycheck-previous-error)
+(global-set-key "\C-x."    'flycheck-next-error)
+
 ;; use count-words instead of count-words-region as it works on buffer
 ;; if no region is selected
 (global-set-key (kbd "M-=") 'count-words)

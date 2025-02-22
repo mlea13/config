@@ -13,6 +13,14 @@
   home.homeDirectory = "/home/maddy";
   home.username = "maddy";
 
+  home.sessionVariables = {
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+  };
+
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+  ];
+    
   home.packages = (with pkgs; [
     (hunspellWithDicts [ hunspellDicts.en-us-large ])
     acpi
@@ -63,6 +71,10 @@
     stylish-haskell
     haskellPackages.cabal-fmt
 
+    rustup
+    pkg-config
+    cargo-binstall
+    
     jre
   ]) ++ [
     (import ../obelisk {}).command
@@ -102,6 +114,26 @@
         enable = true;
       };
 
+      rust-mode = {
+        enable = true;
+        config = ''
+          (setq rust-format-on-save t)
+        '';
+      };
+
+      lsp-mode = {
+        enable = true;
+      };
+
+      lsp-ui = {
+        enable = true;
+        after = [ "lsp-mode" ];
+      };
+
+      flycheck = {
+        enable = true;
+      };
+      
       magit = {
         enable = true;
       };

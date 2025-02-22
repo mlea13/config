@@ -38,7 +38,8 @@
 
 
   ## PACKAGES & ENV
-
+  programs.nix-ld.enable = true;
+    
   # Steam not supported as a user package...
   programs.steam = {
      enable = true;
